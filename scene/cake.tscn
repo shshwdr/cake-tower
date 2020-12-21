@@ -1,9 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/chocolateCake.png" type="Texture" id=1]
 [ext_resource path="res://art/chocolateCakNoMargine.png" type="Texture" id=2]
+[ext_resource path="res://scene/cake.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float left:hint_range(0.0, 1.0);
+uniform float right:hint_range(0.0, 1.0);
+
+void fragment() 
+{
+	if (UV[0] > left &&UV[0]<right) 
+	{
+		
+		COLOR = texture(TEXTURE,UV);
+	}
+	else 
+	{
+		COLOR = vec4(0.0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/left = null
+shader_param/right = 0.8
 
 [node name="cake" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 visible = false
@@ -19,9 +45,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
-margin_right = 178.0
-margin_bottom = 40.0
+[node name="cake" type="NinePatchRect" parent="."]
+material = SubResource( 2 )
+margin_right = 96.0
+margin_bottom = 32.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 96, 32 )
+axis_stretch_horizontal = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cut_cake" type="NinePatchRect" parent="."]
+visible = false
+material = SubResource( 2 )
+margin_right = 96.0
+margin_bottom = 32.0
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 96, 32 )
 axis_stretch_horizontal = 1
