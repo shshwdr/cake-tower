@@ -1,23 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://sound/369147__inspectorj__music-box-happy-birthday.wav" type="AudioStream" id=1]
 [ext_resource path="res://scene/main_game.gd" type="Script" id=2]
 
 [node name="main_game" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Node2D" parent="."]
 visible = false
+z_index = 100
+
+[node name="UI" type="Control" parent="UI"]
 margin_right = 320.0
 margin_bottom = 480.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="UI"]
+[node name="Control" type="Control" parent="UI/UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Button" type="Button" parent="UI/Control"]
+[node name="Button" type="Button" parent="UI/UI/Control"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -26,4 +30,8 @@ margin_top = -48.0
 margin_right = -64.0
 margin_bottom = 24.0
 text = "restart"
-[connection signal="pressed" from="UI/Control/Button" to="." method="_on_Button_pressed"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+[connection signal="pressed" from="UI/UI/Control/Button" to="." method="_on_Button_pressed"]

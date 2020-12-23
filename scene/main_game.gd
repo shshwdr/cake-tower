@@ -3,7 +3,7 @@ extends Node2D
 var cake_scene = preload("res://scene/cake.tscn")
 var current_cake
 var cake_speed = 150
-var cake_speed_max = 300
+var cake_speed_max = 200
 var cake_direction = 1
 onready var UI = $UI
 
@@ -19,6 +19,7 @@ func create_cake(x = 0):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Util.init()
 	#init base cake
 	create_cake(Util.start_x)
 	

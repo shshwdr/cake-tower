@@ -9,12 +9,23 @@ func init(_left,_right):
 	left = _left
 	right = _right
 	
-	
+func perfect_effect():
+	$Particles2D.process_material.emission_box_extents = Vector3((right - left)/4,1,1)
+	print(left," ",right)
+	$Particles2D.position = Vector2(left/2+(right-left) /4,0)
+	$Particles2D.visible = true
+	$Particles2D.emitting = true
 	
 func split():
+	var origin_left = left
+	var origin_right = right
 	var cut_cake_left = left
 	var cut_cake_right = right
-	
+	if abs(position.x - Util.last_center) <= 5:
+		$AudioStreamPlayer.play()
+		perfect_effect()
+		#print("perfect")
+		return true
 	if position.x < Util.last_center:
 		#on the left of the last cake, should cut left
 		var diff = Util.last_center - position.x
@@ -30,10 +41,9 @@ func split():
 		Util.current_right = right
 		cut_cake_left = right
 		#cake_sprite.material.set_shader_param("right",right)
-		
-		
 	#create the part being cut and anim it
 		
+	#perfect_effect()
 	cut_cake_sprite.visible = true
 	update_material(cut_cake_sprite,cut_cake_left,cut_cake_right)
 	tween.interpolate_property(
@@ -57,7 +67,7 @@ func split():
 	
 	Util.last_center = position.x
 	update_material()
-	
+
 	if right - left <Util.game_end_width:
 		Events.emit_signal("game_end")
 		return false
