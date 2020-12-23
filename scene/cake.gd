@@ -5,6 +5,7 @@ onready var tween = $Tween
 onready var cut_cake_sprite = $cut_cake
 var left =0
 var right=1
+var texture 
 func init(_left,_right):
 	left = _left
 	right = _right
@@ -80,8 +81,13 @@ func update_material(sprite = cake_sprite,_left = left, _right = right):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	cake_sprite.texture = texture
+	cut_cake_sprite.texture = texture
 	var new_material = cake_sprite.material.duplicate()
 	cake_sprite.material = new_material
 	var new_material2 = cake_sprite.material.duplicate()
 	cut_cake_sprite.material = new_material2
 	update_material()
+func update_texture(_texture):
+	texture = _texture

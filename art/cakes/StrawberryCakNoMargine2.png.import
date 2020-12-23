@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chocolateCakNoMargine.png-2b75f2cd986deb11d76ee13ea973b184.stex"
+path="res://.import/StrawberryCakNoMargine2.png-f95c7c44d3673a49c1713fd2bfecbb89.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/chocolateCakNoMargine.png"
-dest_files=[ "res://.import/chocolateCakNoMargine.png-2b75f2cd986deb11d76ee13ea973b184.stex" ]
+source_file="res://art/cakes/StrawberryCakNoMargine2.png"
+dest_files=[ "res://.import/StrawberryCakNoMargine2.png-f95c7c44d3673a49c1713fd2bfecbb89.stex" ]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sound/369147__inspectorj__music-box-happy-birthday.wav" type="AudioStream" id=1]
 [ext_resource path="res://scene/main_game.gd" type="Script" id=2]
+[ext_resource path="res://sound/391869__theuned__happy-birthday-crowd.wav" type="AudioStream" id=3]
 
 [node name="main_game" type="Node2D"]
 script = ExtResource( 2 )
@@ -34,4 +35,13 @@ text = "restart"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
+
+[node name="game_end_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 240, 240 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 3.0
 [connection signal="pressed" from="UI/UI/Control/Button" to="." method="_on_Button_pressed"]

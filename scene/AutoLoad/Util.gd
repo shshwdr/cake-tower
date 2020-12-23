@@ -30,5 +30,15 @@ func init():
 	current_right = current_cake_width
 	last_center = start_x
 
+func calc_difficulty(x_low,x_high,y_low,y_high,current_x):
+	if current_x<=x_low:
+		return y_low
+	if current_x>=x_high:
+		return y_high
+	var k = (y_high - y_low)/float(x_high - x_low)
+	return (current_x - x_low)*k+y_low
+func calc_difficulty_range(x_range,y_range,current_x):
+	return calc_difficulty(x_range[0],x_range[1],y_range[0],y_range[1],current_x)
+
 func get_current_cake_start():
 	return start_y-current_level*cake_height
