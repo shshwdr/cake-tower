@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sound/131660__bertrof__game-sound-correct.wav" type="AudioStream" id=1]
+[ext_resource path="res://particles/new_particlesmaterial.tres" type="Material" id=2]
 [ext_resource path="res://scene/cake.gd" type="Script" id=3]
 [ext_resource path="res://art/star.png" type="Texture" id=4]
 
@@ -27,27 +28,6 @@ void fragment()
 shader = SubResource( 1 )
 shader_param/left = null
 shader_param/right = 1.0
-
-[sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.422819, 0.697987, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.302013, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-emission_shape = 2
-emission_box_extents = Vector3( 48, 1, 1 )
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-flatness = 1.0
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 50.0
-angular_velocity = 100.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-damping = 8.98
-color_ramp = SubResource( 4 )
 
 [node name="cake" type="Node2D"]
 script = ExtResource( 3 )
@@ -94,5 +74,5 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 0.7
 randomness = 1.0
-process_material = SubResource( 5 )
+process_material = ExtResource( 2 )
 texture = ExtResource( 4 )

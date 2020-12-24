@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scene/firework.tres" type="Material" id=1]
+[ext_resource path="res://art/white_star.png" type="Texture" id=2]
+[ext_resource path="res://scene/one_firework.gd" type="Script" id=3]
+
+[node name="Particles2D" type="Particles2D"]
+position = Vector2( 48, 0 )
+z_index = 50
+amount = 100
+lifetime = 0.8
+speed_scale = 0.8
+explosiveness = 1.0
+randomness = 1.0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )

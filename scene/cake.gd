@@ -12,7 +12,7 @@ func init(_left,_right):
 	
 func perfect_effect():
 	$Particles2D.process_material.emission_box_extents = Vector3((right - left)/4,1,1)
-	print(left," ",right)
+	#print(left," ",right)
 	$Particles2D.position = Vector2(left/2+(right-left) /4,0)
 	$Particles2D.visible = true
 	$Particles2D.emitting = true
@@ -51,7 +51,7 @@ func split():
 				cut_cake_sprite, 
 				"rect_position", 
 				cut_cake_sprite.rect_position,cut_cake_sprite.rect_position+Vector2(0,200),
-				0.5,
+				1.3,
 				Tween.TRANS_SINE, Tween.EASE_IN)
 	var target_modulate = cut_cake_sprite.modulate
 	target_modulate.a = 0
@@ -59,7 +59,7 @@ func split():
 				cut_cake_sprite, 
 				"modulate", 
 				cut_cake_sprite.modulate,target_modulate,
-				2,
+				3,
 				Tween.TRANS_EXPO, Tween.EASE_OUT)
 	tween.start()
 	#yield(tween,"tween_completed")

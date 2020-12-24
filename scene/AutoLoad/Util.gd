@@ -2,13 +2,15 @@ extends Node
 
 
 var game_end = false
-
+var current_height = 0
 
 
 var scale = 3
 var width_scale = 3
 var cake_scale = 2
 var screen_width = 160*width_scale
+var screen_height = 160*scale
+var screen_center = Vector2(screen_width/2,screen_height/2)
 var cake_height = 32*cake_scale
 var start_y = 160*scale - cake_height
 var current_level = 0
@@ -21,6 +23,13 @@ var start_x = (screen_width-cake_width)/2
 
 var last_center = start_x
 var game_end_width = cake_width/32/3
+
+var rng:RandomNumberGenerator = RandomNumberGenerator.new()
+func _ready():
+	rng.randomize()
+	
+func random_vector2(x,y):
+	return Vector2(rng.randi()%x, rng.randi()%y)
 
 func init():
 	current_level = 0

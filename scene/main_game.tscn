@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://sound/369147__inspectorj__music-box-happy-birthday.wav" type="AudioStream" id=1]
 [ext_resource path="res://scene/main_game.gd" type="Script" id=2]
 [ext_resource path="res://sound/391869__theuned__happy-birthday-crowd.wav" type="AudioStream" id=3]
+[ext_resource path="res://scene/firework.tscn" type="PackedScene" id=4]
 
 [node name="main_game" type="Node2D"]
 script = ExtResource( 2 )
@@ -26,11 +27,14 @@ anchor_bottom = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 64.0
-margin_top = -48.0
-margin_right = -64.0
-margin_bottom = 24.0
+margin_left = 24.0
+margin_top = 192.0
+margin_right = -208.0
+margin_bottom = 224.0
 text = "restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
@@ -44,4 +48,9 @@ position = Vector2( 240, 240 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 3.0
+
+[node name="firework" parent="Camera2D" instance=ExtResource( 4 )]
+visible = false
+
+[node name="cakes" type="Node2D" parent="."]
 [connection signal="pressed" from="UI/UI/Control/Button" to="." method="_on_Button_pressed"]

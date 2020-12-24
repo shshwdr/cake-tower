@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StrawberryCakNoMargine-export.png-d4ed1757a6bac97c83903cd851d7938f.stex"
+path="res://.import/ltrawberryCakNoMargine.png-48e911158cb6288c2eb34a105c27a9a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/cakes/StrawberryCakNoMargine-export.png"
-dest_files=[ "res://.import/StrawberryCakNoMargine-export.png-d4ed1757a6bac97c83903cd851d7938f.stex" ]
+source_file="res://art/cakes/ltrawberryCakNoMargine.png"
+dest_files=[ "res://.import/ltrawberryCakNoMargine.png-48e911158cb6288c2eb34a105c27a9a6.stex" ]
 
 [params]
 
